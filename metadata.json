@@ -1,0 +1,7 @@
+{
+  "name": "Remix: Hardware TrayGuard AI",
+  "description": "Industrial AI monitoring system for hardware retail, comparing vision-detected tools and fasteners with ERP billing data.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
