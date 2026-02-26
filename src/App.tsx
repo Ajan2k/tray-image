@@ -35,9 +35,17 @@ import { SystemDiagnostics } from './components/SystemDiagnostics';
 import { ItemDetectionList } from './components/ItemDetectionList';
 import { MOCK_BILLED_PRODUCTS, MOCK_DETECTED_PRODUCTS, MOCK_SUMMARY_DATA } from './constants';
 
+import sec1 from "./sec1.png";
+import sec2 from "./sec2.png";
+import sec3 from "./sec3.png";
+import sec4 from "./sec4.png";
+import sec5 from "./sec5.png";
+import sec6 from "./sec6.png";
 export default function App() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'reports' | 'settings'>('dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const cameraImages = [sec1, sec2, sec3, sec4, sec5, sec6];
 
   const navItems = [
     { id: 'dashboard', label: 'Live Monitor', icon: LayoutDashboard },
@@ -375,17 +383,17 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[1, 2, 3, 4, 5, 6].map((cam) => (
-                    <div key={cam} className="group relative aspect-video bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                  {cameraImages.map((image, index) => (
+                    <div key={index + 1} className="group relative aspect-video bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                       <img 
-                        src={`https://picsum.photos/seed/cam${cam}/640/360`} 
-                        alt={`Camera ${cam}`} 
+                        src={image} 
+                        alt={`Camera ${index + 1}`} 
                         className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
                         referrerPolicy="no-referrer"
                       />
                       <div className="absolute top-3 left-3 flex items-center gap-2 bg-black/50 backdrop-blur-md px-2 py-1 rounded-md border border-white/10">
                         <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-                        <span className="text-[10px] font-bold text-white uppercase tracking-wider">CAM-0{cam}</span>
+                        <span className="text-[10px] font-bold text-white uppercase tracking-wider">CAM-0{index + 1}</span>
                       </div>
                       <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <span className="text-[10px] font-mono text-white/70">1080p | 30fps</span>
